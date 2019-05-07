@@ -18,7 +18,13 @@ function handleButtonClick() {
 
 
 function createNoty(body) {
-    Noty.showNotification('', { body });
+    Noty.showNotification('', { body }).then(() => {
+        Noty.getNotifications().then(notifications => {
+            notifications.forEach(noty => {
+                noty.close();
+            });
+        });
+    });
 }
 
 function cutMessage(message, maxLength = 164) {
