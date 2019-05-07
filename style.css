@@ -1,0 +1,28 @@
+body {
+    background: black;
+    display: flex;
+    /*align-items: center;*/
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+[form] {
+    max-width: 800px;
+    width: 100%;
+    padding: 10px;
+}
+
+textarea {
+    background: black;
+    color: white;
+    width: 100%;
+}
+
+button {
+    background: black;
+    color: white;
+    font-size: 20px;
+    width: 100%;
+    cursor: pointer;
+}
