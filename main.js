@@ -1,43 +1,37 @@
 const form = document.querySelector('[form]');
 const formTextArea = form.querySelector('[form-textarea]');
-const formButton= form.querySelector('[form-button]');
+const formButton = form.querySelector('[form-button]');
 
-Notification.requestPermission();
+formButton.addEventListener('click', handleButtonClick);
 
 function handleButtonClick() {
-    const text = formTextArea.value.trim();
-    let timeoutTime = 0;
+    let text = formTextArea.value.trim();
+    text = removeExtraSymbols(text);
+
     if (text.length) {
         cutMessage(text)
-            .forEach((part) => {
-                setTimeout(() => {
-                    console.log(part);
-                    createNoty(part)
-                }, timeoutTime);
-                timeoutTime += 1000;
-            });
+            .forEach(createNoty);
+
+        formTextArea.value = '';
     }
-
 }
 
-function createNoty(text) {
-    Notification.requestPermission().then((permission) => {
-        if (permission === "granted") {
-            new Notification(text);
-        }
-    });
+
+function createNoty(body) {
+    Noty.showNotification('', { body });
 }
 
-function cutMessage(message, maxLength = 120) {
+function cutMessage(message, maxLength = 164) {
     let result = [];
-    let tempMessage = message;
-    let iteration = 1;
 
-    for (let slice = 0; slice < message.length; slice += maxLength) {
-        const sliceTo = maxLength * iteration;
-        result.push(tempMessage.slice(slice, sliceTo));
-        iteration++;
+    while (message.length) {
+        result.push(message.slice(0, maxLength));
+        message = message.slice(maxLength, message.length);
     }
 
-    return result;
+    return result.reverse();
+}
+
+function removeExtraSymbols(string) {
+    return string.replace(/\n/g, ' ');
 }
