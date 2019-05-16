@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     background: black;
     color: white;
@@ -13,15 +17,41 @@ body {
 }
 
 textarea {
-    background: black;
-    color: white;
     width: 100%;
+    padding: 10px;
+    resize: none;
 }
 
 button {
-    background: black;
-    color: white;
     font-size: 20px;
     width: 100%;
     cursor: pointer;
+    padding: 5px;
+}
+
+label {
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+#delayed_second,
+#symbol_count {
+    padding: 5px;
+    width: 50px;
+}
+
+#delayed {
+    margin: 0;
+}
+
+.interactive {
+    background: #191919;
+    color: white;
+    border: none;
+}
+
+.form-checkbox {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
 }
