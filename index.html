@@ -9,10 +9,21 @@
   <title>Noty</title>
 </head>
 <body>
-	<div form>
-	  <textarea placeholder="Send it..." id="" cols="30" rows="10" form-textarea></textarea>
-	  <button form-button>Send</button>
-	</div>
+	<form form>
+	  <textarea class="interactive" placeholder="Your message..." id="" cols="30" rows="10" form-textarea></textarea>
+
+	  <div class="form-checkbox">
+		<label for="delayed">Delayed</label>
+		<input class="interactive" type="checkbox" name="" id="delayed" form-delayed>
+	  </div>
+
+	  <div class="form-checkbox">
+		<label for="symbol_count">Symbol count</label>
+		<input class="interactive" type="number" name="" id="symbol_count" form-symbol-count>
+	  </div>
+
+	  <button class="interactive" form-button>Send</button>
+	</form>
 	<script src="./noty.js"></script>
 	<script src="./main.js"></script>
 </body>
